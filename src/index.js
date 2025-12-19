@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express')
 const cors = require('cors');
 const mongoose = require("mongoose");
@@ -8,8 +10,6 @@ const PORT = process.env.PORT || 9000;
 
 
 mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
   tls: true,                 
   tlsAllowInvalidCertificates: false 
 })
