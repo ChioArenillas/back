@@ -7,7 +7,14 @@ const app = express()
 const PORT = process.env.PORT || 9000;
 
 
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  tls: true,                 
+  tlsAllowInvalidCertificates: false 
+})
+.then(() => console.log("Conectado a MongoDB correctamente"))
+.catch(err => console.error("Error de conexión a MongoDB:", err));
 
 const db = mongoose.connection;
 
