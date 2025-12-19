@@ -29,11 +29,10 @@ app.use(cors({
 }));
 
 app.use('/donuts', donutsRouter);
+app.use('/favourites', favouritesRoutes)
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
 
-app.use(express.json())
-app.use('/favourites', favouritesRoutes)
 
